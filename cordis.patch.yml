@@ -1,0 +1,9 @@
+# dsh-bili-learn bundle patch：向 web 组合挂载 dsh-bili-learn。
+# Node half 守护 bilibili_learning_bot 的 web_panel.py 子进程，注册 DSH webserver
+# 上的 OpenAI 兼容 LLM 代理（/dsh-bili-learn/v1/*），并把 bilibili config.json 的
+# API 指向自动同步为 DSH 当前模型。
+# Client half 经 dsh.client 声明由 client 内核组合进页面，注册 conversation.view
+# 槽位的 'bili-learn' 视图（order 7，落在「GAL视窗」(5) 与「轨迹」(10) 之间）。
+- insert:
+    - id: dsh-bili-learn
+      name: dsh-bili-learn

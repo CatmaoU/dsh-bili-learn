@@ -1,0 +1,30 @@
+{
+  "name": "dsh-bili-learn",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "B站学习机器人 (bilibili_learning_bot) × DSH 深度集成：面板内嵌「B站学习」标签页（GAL视窗与轨迹之间）+ 自动调用 DSH 当前模型作为其 LLM 连接",
+  "main": "./.dsh-plugin/index.mjs",
+  "exports": {
+    ".": "./.dsh-plugin/index.mjs",
+    "./client": "./.dsh-plugin/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build:client": "node scripts/build-client.mjs",
+    "check:client": "node scripts/build-client.mjs --check"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "slots"
+      ]
+    }
+  },
+  "license": "MIT"
+}
